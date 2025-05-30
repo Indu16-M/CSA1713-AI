@@ -1,0 +1,26 @@
+def alphabeta(board, depth, alpha, beta, is_max):Add commentMore actions
+    winner = check(board)
+    if winner: return {'X': 1, 'O': -1, 'D': 0}[winner]
+    if is_max:
+        value = -1
+        for i in range(9):
+            if board[i] == " ":
+                board[i] = "X"
+                value = max(value, alphabeta(board, depth+1, alpha, beta, False))
+                board[i] = " "
+                alpha = max(alpha, value)
+                if beta <= alpha: break
+        return value
+    else:
+        value = 1
+        for i in range(9):
+            if board[i] == " ":
+                board[i] = "O"
+                value = min(value, alphabeta(board, depth+1, alpha, beta, True))
+                board[i] = " "
+                beta = min(beta, value)
+                if beta <= alpha: break
+        return value
+
+board = ["X", "O", "X", " ", "O", " ", " ", " ", " "]
+print("Best score:", alphabeta(board, 0, -1, 1, True))
