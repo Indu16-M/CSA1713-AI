@@ -1,0 +1,4 @@
+fruit(apple, red).Add commentMore actions
+fruit(banana, yellow).
+fruit(grape, purple).
+Query: fruit(apple, Color).
