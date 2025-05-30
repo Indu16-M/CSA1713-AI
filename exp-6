@@ -1,0 +1,14 @@
+def vacuum_cleaner(env, pos):More actions
+    for _ in range(2):
+        print(f"Vacuum in Room {pos} - Status: {env[pos]}")
+        if env[pos] == "Dirty":
+            print("Cleaning...")
+            env[pos] = "Clean"
+        pos = "B" if pos == "A" else "A"
+    print("Final Environment:", env)
+
+# Initial environment: one or both rooms dirty
+environment = {"A": "Dirty", "B": "Dirty"}
+
+# Start from Room A
+vacuum_cleaner(environment, "A")
